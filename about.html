@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - My Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="about">
+    <h2>About Me ✨</h2>
+    <div class="about-container">
+      <div class="about-image">
+        <img src="img/kaiwen.jpg" alt="KaiWen" />
+      </div>
+      <div class="about-text">
+        <p>
+          Hi, I'm KaiWen, currently pursuing a Diploma in Digital Design and Development at 
+          Republic Polytechnic. I have a strong interest in the technology field, 
+          particularly in software development, where I enjoy building both web and mobile 
+          applications. My portfolio showcases a variety of projects that reflect my skills
+          and creativity in bringing digital solutions to life. Seeing my ideas transform into
+          functional applications is something I find truly rewarding.
+          In addition to software development, I am also exploring the world of Artificial
+          Intelligence. As AI continues to shape the way we interact with technology, I am
+          keen to understand its potential and applications and how it can be integrated into 
+          innovative solutions. 
+        </p>
+        <a href="resume/kaiwen_resume.pdf" download class="btn">Download My Resume ⬇️</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience">
+    <h2>Experience 🏆</h2>
+    <div class="experience-slider">
+      <div class="experience-card active">
+  
+        <div class="experience-img">
+          <img id="experience-photo" src="img/girlssports.jpg" alt="Experience Photo">
+        </div>
+  
+        <div class="experience-content">
+          <h3>Secondary School Inter Class Games</h3>
+          <p>Represented my school in inter-class volleyball and tchoukball tournaments.</p>
+        </div>
+  
+      </div>
+    </div>
+  </section>  
+
+  <footer class="footer">
+    <p>© KaiWen. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const photos = [
+      "img/girlssports.jpg",
+      "img/5a1sports.jpg"
+    ];
+  
+    let index = 0;
+    const imgElement = document.getElementById("experience-photo");
+  
+    setInterval(() => {
+      index = (index + 1) % photos.length;
+      imgElement.src = photos[index];
+    }, 3000);
+  </script>
+  
+
+</body>
+</html>

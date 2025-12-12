@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Tracker App - My Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="project-detail">
+    <h2>💤 Sleep Tracker App 💤</h2>
+
+    <!-- Slidable App Images -->
+    <div class="project-slider">
+      <div class="slides">
+        <img src="img/sleeptracker.jpg" alt="Home Page" class="active" />
+        <img src="img/login.jpg" alt="Log In Page" />
+        <img src="img/dashboard.jpg" alt="Dashboard" />
+        <img src="img/calculator.jpg" alt="Sleep Time Calculator" />
+        <img src="img/Lunar.jpg" alt="Lunar" />
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+
+    <!-- Description -->
+    <p>Lunar is a full-stack sleep tracking web application built with Node.js, Express, 
+        EJS templating, and MySQL. It helps users monitor and improve their sleep
+        habits with an intuitive and visually calming interface.
+
+        Users can create accounts, log their sleep sessions, track personalized statistics,
+        update their profiles, and calculate optimal bedtimes. The platform also features
+        an admin dashboard for managing and reviewing all user sleep logs.
+
+        Designed with a focus on wellness, Lunar’s interface incorporates soothing
+        animations such as stars and falling snow, paired with a clean and user-friendly
+        layout to enhance the overall sleep tracking experience.
+
+    </p>
+
+    <!-- Tech Stack -->
+    <h3>Tech Stack:</h3>
+    <ul>
+      <li>Frontend: HTML, CSS, Bootstrap</li>
+      <li>Backend: Node.js, Express</li>
+      <li>Database: MySQL</li>
+      <li>Templating: EJS</li>
+    </ul>
+
+    <!-- Links -->
+    <div class="project-links-vertical">
+      <a href="https://sleeptrackerapp.vercel.app/" target="_blank" class="btn-link">View Live App</a>
+      <a href="projects.html" class="btn-link">Back to Projects ⬅️</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© KaiWen. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Slideshow functionality with auto-slide
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slides img');
+    const totalSlides = slides.length;
+
+    const showSlide = (index) => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    const prevSlide = () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    document.querySelector('.next').addEventListener('click', nextSlide);
+    document.querySelector('.prev').addEventListener('click', prevSlide);
+
+    // Auto-slide every 3 seconds
+    setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>

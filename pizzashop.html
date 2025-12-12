@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pizza Shop App - My Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="project-detail">
+    <h2>KaiWen's Pizza Co.🍕</h2>
+
+    <!-- Slidable App Images -->
+    <div class="project-slider">
+      <div class="slides">
+        <img src="img/pizza_home.png" alt="Pizza Shop Home" class="active" />
+        <img src="img/pizza_favourite.png" alt="Pizza Favourite" />
+        <img src="img/shopopen.png" alt="Pizza Shop is Open" />
+        <img src="img/shopclose.png" alt="Pizza Shop is Close" />
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+
+    <!-- Description -->
+    <p>Kai Wen’s Pizza Co. is a React-based web application that allows users to explore a pizza menu, mark their
+      favourite pizzas, and place orders during operating hours. The app features interactive components, dynamic
+      favourite toggling, and a visually appealing responsive layout. Users can view pizza details, highlight
+      favourites and see whether the shop is currently open, all managed in real-time using React state.
+    </p>
+
+    <!-- Tech Stack -->
+    <h3>Tech Stack:</h3>
+    <ul>
+      <li>Frontend: React (with JSX), CSS</li>
+      <li>Data Storage: In-memory (arrays/objects)</li>
+    </ul>
+
+    <!-- Links -->
+    <div class="project-links-vertical">
+      <a href="https://pizza-app-plum.vercel.app/" target="_blank" class="btn-link">View Live App</a>
+      <a href="projects.html" class="btn-link">Back to Projects ⬅️</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© KaiWen. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Slideshow functionality with auto-slide
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slides img');
+    const totalSlides = slides.length;
+
+    const showSlide = (index) => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    const prevSlide = () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    document.querySelector('.next').addEventListener('click', nextSlide);
+    document.querySelector('.prev').addEventListener('click', prevSlide);
+
+    // Auto-slide every 3 seconds
+    setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce Website UI - My Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="project-detail">
+    <h2>EcoVibe 🌍</h2>
+
+    <!-- Slidable App Images -->
+    <div class="project-slider">
+      <div class="slides">
+        <img src="img/ecovibe_homepage.png" alt="Home Page" class="active" />
+        <img src="img/product_category.png" alt="Product Category Page" />
+        <img src="img/wishlist.png" alt="Wishlist Page" />
+        <img src="img/product_details.png" alt="Product Details Page" />
+        <img src="img/checkout.png" alt="CheckOut Page" />
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+
+    <!-- Description -->
+    <p>This Sustainable E-Commerce Website is a high-fidelity design created in Figma,
+      showasing a clean and eco-friendly shopping experience. It includes product listings,
+      category browsing and a responsive layout optimized for both desktop and mobile 
+      devices. The design emphasizes sustainability, user experience and intuitive navigation.
+      This project strengthen my UI/UX design skills by creating a polished, high-fidelity prototype 
+      that feels fully functional, intuitive and aligned with sustainable branding, while incorporating 
+      smooth interactions such as dynamic hero banners and engaging product displays.
+    </p>
+
+    <!-- Tech Stack -->
+    <h3>Tech Stack:</h3>
+    <ul>
+      <li>Design & Prototyping: Figma</li>
+      <li>UI Components & Assets: Unsplash images, Icons8</li>
+    </ul>
+
+    <!-- Links -->
+    <div class="project-links-vertical">
+      <a href="https://www.figma.com/proto/UJBtcUsvMv7INox743AYML/kaiwen-24010782-EcoVibe-Wireframe--1-?node-id=86-440&t=sqK9Tx0D2mZV1Urq-1" target="_blank" class="btn-link">View Live App</a>
+      <a href="projects.html" class="btn-link">Back to Projects ⬅️</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© KaiWen. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Slideshow functionality with auto-slide
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slides img');
+    const totalSlides = slides.length;
+
+    const showSlide = (index) => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    const prevSlide = () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    document.querySelector('.next').addEventListener('click', nextSlide);
+    document.querySelector('.prev').addEventListener('click', prevSlide);
+
+    // Auto-slide every 3 seconds
+    setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>

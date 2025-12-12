@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music Playlist Tracker - My Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="project-detail">
+    <h2>KaiWen Music Playlist Tracker 🎵</h2>
+
+    <!-- Slidable App Images -->
+    <div class="project-slider">
+      <div class="slides">
+        <img src="img/musichome.png" alt="Music Playlist Home" class="active" />
+        <img src="img/music_playlist.png" alt="Music Playlist Page" />
+        <img src="img/playlist_addsong.png" alt="Music Playlist Add Song" />
+        <img src="img/addsong.png" alt="Add Song Page" />
+        <img src="img/contactus.png" alt="Contact Us Page" />
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+
+    <!-- Description -->
+    <p>Kai Wen Music Playlist Tracker is a Node.js web application that allows users to
+        manage a personalized music playlist. Users can add new songs, search through the 
+        playlist, edit existing entries, and delete songs — all through a simple and
+        responsive Bootstrap interface. The app also includes a contact form for user
+        feedback. All data is stored temporarily in memory, making it ideal for learning
+        backend fundamentals. 
+    </p>
+
+    <!-- Tech Stack -->
+    <h3>Tech Stack:</h3>
+    <ul>
+      <li>Backend: Node.js, Express</li>
+      <li>Frontend: HTML, Bootstrap, Inline Templates (served via Express)</li>
+      <li>Middleware: body-parser</li>
+      <li>Data Storage: In-memory array (no database)</li>
+    </ul>
+
+    <!-- Links -->
+    <div class="project-links-vertical">
+      <a href="https://musicplaylist-ivory.vercel.app/" target="_blank" class="btn-link">View Live App</a>
+      <a href="projects.html" class="btn-link">Back to Projects ⬅️</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© KaiWen. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Slideshow functionality with auto-slide
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slides img');
+    const totalSlides = slides.length;
+
+    const showSlide = (index) => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    const prevSlide = () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    document.querySelector('.next').addEventListener('click', nextSlide);
+    document.querySelector('.prev').addEventListener('click', prevSlide);
+
+    // Auto-slide every 3 seconds
+    setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>
