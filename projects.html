@@ -6,8 +6,10 @@
   <title>Projects - My Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">MyPortfolio</div>
     <nav>
@@ -18,74 +20,111 @@
     </nav>
   </header>
 
-  <section class="projects">
-    <h2>My Projects</h2>
-  
-    <div class="project-grid">
-  
-      <a href="sleeptracker.html" class="project-link">
-        <div class="project-card">
-          <img src="img/sleeptracker.jpg" alt="Sleep Tracker App" />
-          <h3>Sleep Tracker App</h3>
-        </div>
-      </a>
-  
-      <a href="ecovibe.html" class="project-link">
-        <div class="project-card">
-          <img src="img/ecovibe.png" alt="E-Commerce Website UI" />
-          <h3>E-Commerce Website UI</h3>
-        </div>
-      </a>
-  
-      <a href="travellist.html" class="project-link">
-        <div class="project-card">
-          <img src="img/travellist.png" alt="Travel List App" />
-          <h3>Travel List App</h3>
-        </div>
-      </a>
-  
-      <a href="pizzashop.html" class="project-link">
-        <div class="project-card">
-          <img src="img/pizza_home.png" alt="Pizza Shop App" />
-          <h3>Pizza Shop App</h3>
-        </div>
-      </a>
+  <!-- MAIN WRAPPER (IMPORTANT) -->
+  <main class="main-content">
 
-      <a href="musicplaylist.html" class="project-link">
-        <div class="project-card">
-          <img src="img/musichome.png" alt="Music Playlist Tracker" />
-          <h3>Music Playlist Tracker</h3>
-        </div>
-      </a>
+    <!-- Projects Section -->
+    <section class="projects">
+      <h2>My Projects</h2>
 
-      <a href="escaperoom.html" class="project-link">
-        <div class="project-card">
-          <img src="img/escaperoom.png" alt="VR Escape Room" />
-          <h3>VR Escape Room</h3>
-        </div>
-      </a>
+      <!-- Filters -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Application Development</button>
+        <button class="filter-btn" data-filter="uiux">UI / UX Design</button>
+        <button class="filter-btn" data-filter="unity">Game & XR Development</button>
+        <button class="filter-btn" data-filter="ar">Augmented Reality</button>
+      </div>
 
-      <a href="namecard.html" class="project-link">
-        <div class="project-card">
-          <img src="img/namecard.jpg" alt="AR Name Card" />
-          <h3>AR Name Card</h3>
-        </div>
-      </a>
+      <!-- Project Grid -->
+      <div class="project-grid">
 
-      <a href="jiome.html" class="project-link">
-        <div class="project-card">
-          <img src="img/jiome_homepage.png" alt="AR Name Card" />
-          <h3>The Campus Interest-Group Finder</h3>
-        </div>
-      </a>
+        <a href="sleeptracker.html" class="project-link" data-category="web">
+          <div class="project-card">
+            <img src="img/sleeptracker.jpg" alt="Sleep Tracker App" />
+            <h3>Sleep Tracker App</h3>
+          </div>
+        </a>
 
-    </div>
-  </section>
-  
+        <a href="ecovibe.html" class="project-link" data-category="uiux">
+          <div class="project-card">
+            <img src="img/ecovibe.png" alt="E-Commerce Website UI" />
+            <h3>E-Commerce Website UI</h3>
+          </div>
+        </a>
 
+        <a href="travellist.html" class="project-link" data-category="web">
+          <div class="project-card">
+            <img src="img/travellist.png" alt="Travel List App" />
+            <h3>Travel List App</h3>
+          </div>
+        </a>
+
+        <a href="pizzashop.html" class="project-link" data-category="web">
+          <div class="project-card">
+            <img src="img/pizza_home.png" alt="Pizza Shop App" />
+            <h3>Pizza Shop App</h3>
+          </div>
+        </a>
+
+        <a href="musicplaylist.html" class="project-link" data-category="web">
+          <div class="project-card">
+            <img src="img/musichome.png" alt="Music Playlist Tracker" />
+            <h3>Music Playlist Tracker</h3>
+          </div>
+        </a>
+
+        <a href="escaperoom.html" class="project-link" data-category="unity">
+          <div class="project-card">
+            <img src="img/escaperoom.png" alt="VR Escape Room" />
+            <h3>VR Escape Room</h3>
+          </div>
+        </a>
+
+        <a href="namecard.html" class="project-link" data-category="ar">
+          <div class="project-card">
+            <img src="img/namecard.jpg" alt="AR Name Card" />
+            <h3>AR Name Card</h3>
+          </div>
+        </a>
+
+        <a href="jiome.html" class="project-link" data-category="web">
+          <div class="project-card">
+            <img src="img/jiome_homepage.png" alt="Campus Interest Group Finder" />
+            <h3>The Campus Interest-Group Finder</h3>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
   <footer class="footer">
     <p>© KaiWen. All Rights Reserved.</p>
   </footer>
+
+  <!-- Filter Script -->
+  <script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projects = document.querySelectorAll(".project-link");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        projects.forEach(project => {
+          const category = project.dataset.category;
+          project.style.display =
+            filter === "all" || category === filter ? "block" : "none";
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
