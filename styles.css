@@ -348,7 +348,7 @@ section {
 }
 .slides img {
     width: 100%;
-    height: 300px;       /* reduced from 400px */
+    height: 400px;       /* reduced from 400px */
     object-fit: contain; /* full image visible without cropping */
     display: none;
     border-radius: 10px;
