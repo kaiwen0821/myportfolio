@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RP Course Enrolment Portal - My Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/logo.png" alt="My Portfolio Logo" />
+    </div>
+  
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>  
+
+  <section class="project-detail">
+    <h2>RP Course Enrolment Portal</h2>
+
+    <!-- Slidable App Images -->
+    <div class="project-slider">
+      <div class="slides">
+        <img src="img/rpportal_home.png" alt="Home Page" class="active" />
+        <img src="img/rpportal_diplomas.png" alt="Diplomas Page" />
+        <img src="img/choosediploma.png" alt="Choosing Diploma Page" />
+        <img src="img/diplomadetails.png" alt="Diploma Detail Page" />
+        <img src="img/addfavourite.png" alt="Add Diploma to Favourite Popup" />
+        <img src="img/diplomadetails.png" alt="Diploma Detail Page" />
+        <img src="img/rpportal_register.png" alt="Register Page" />
+        <img src="img/fillinblanks.png" alt="Register Page Fill in Blanks" />
+        <img src="img/registersuccess.png" alt="Registration Successfully" />
+        <img src="img/faavouritespage.png" alt="Favourites Page" />
+        <img src="img/deletefavourite.png" alt="Delete Favourite Popup" />
+        <img src="img/faq.png" alt="FAQ Page" />
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+
+<!-- Description -->
+<div class="project-description">
+    <p>
+      <strong>RP Course Enrolment Portal</strong> is a React-based web application designed for Republic Polytechnic students to explore diplomas, view course details, and register interest efficiently.
+    </p>
+  
+    <h4>Problem</h4>
+    <p>
+      Students need a clear and structured platform to navigate available courses and diplomas without confusion or scattered information.
+    </p>
+  
+    <h4>Solution</h4>
+    <p>
+      The portal provides search, favourites, nested routes for smooth navigation, and registration forms for students to express interest in specific courses.
+    </p>
+  
+    <h4>Design Focus</h4>
+    <p>
+      Built with <strong>React</strong> and React Router, the interface focuses on clarity, responsiveness, and smooth navigation while using React Hooks for state management and controlled forms.
+    </p>
+  
+    <h4>Key Features</h4>
+    <p>
+      Diploma/course exploration, search and filter, favourites system, registration forms, responsive and clean UI
+    </p>
+  </div>  
+
+    <!-- Tech Stack -->
+    <h3>Tech Stack:</h3>
+    <ul>
+      <li>Frontend: React, JavaScript (JSX)</li>
+      <li>Routing: React Router (Nested Routes)</li>
+      <li>Styling: CSS / Custom Responsive Styling</li>
+      <li>State Management: React Hooks (useState, useEffect)</li>
+      <li>Forms: Controlled Components & Form Handling</li>
+    </ul>
+
+    <!-- Links -->
+    <div class="project-links-vertical">
+      <a href="https://course-enrolment-dbk7.vercel.app/" target="_blank" class="btn-link">View Live App</a>
+      <a href="projects.html" class="btn-link">Back to Projects ⬅️</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© KaiWen. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Slideshow functionality with auto-slide
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slides img');
+    const totalSlides = slides.length;
+
+    const showSlide = (index) => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    const prevSlide = () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    document.querySelector('.next').addEventListener('click', nextSlide);
+    document.querySelector('.prev').addEventListener('click', prevSlide);
+
+    // Auto-slide every 3 seconds
+    setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>

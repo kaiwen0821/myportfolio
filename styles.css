@@ -813,3 +813,29 @@ a, a:link, a:visited, a:active {
     border-width: 1.5px;      /* thinner border */
   }
   
+  .project-description {
+    text-align: left;
+    max-width: 800px;
+    color: var(--text-fade);
+}
+
+.project-description h4 {
+    margin-top: 25px;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.project-description p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.project-description ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.project-description li {
+    margin-bottom: 6px;
+}
