@@ -21,7 +21,7 @@
   <section class="contact-form-section">
     <h2>Contact Me!</h2>
 
-    <form class="contact-form" action="mailto:your.email@example.com" method="POST">
+    <form class="contact-form" id="contactForm">
       <div class="form-group">
         <label>First Name</label>
         <input type="text" name="first_name" required />
@@ -54,6 +54,16 @@
   <footer class="footer">
     <p>© KaiWen. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent default form submission
+      alert('Thank you! Your message has been sent.'); // show success message
+      form.reset(); // clear all form fields
+    });
+  </script>
 
 </body>
 </html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JioMe - My Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="project-detail">
+    <h2>JioMe 🤗</h2>
+
+    <!-- Slidable App Images -->
+    <div class="project-slider">
+      <div class="slides">
+        <img src="img/jiome_homepage.png" alt="Home" class="active" />
+        <img src="img/loadinglobbies.png" alt="Loading Page" />
+        <img src="img/alllobbies.png" alt="View All Lobbies" />
+        <img src="img/jiome_login.png" alt="LogIn Page" />
+        <img src="img/createlobby.png" alt="Create Lobby Page" />
+        <img src="img/user_alllobbies.png" alt="User View All Lobbies" />
+        <img src="img/deletelobby.png" alt="Delete Lobby Page" />
+        <img src="img/lobbiesstartingsoon.png" alt="Lobbies Starting Soon Page" />
+        <img src="img/lobbiesexpired.png" alt="Expired Lobby Page" />
+        <img src="img/sportslobbies.png" alt="Sport Lobby Page" />
+        <img src="img/gamelobbies.png" alt="Game Lobby Page" />
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+
+    <!-- Description -->
+    <p>JioMe is a campus-focused interest-group finder web application that helps students
+        quickly create, discover, and join short, informal activity groups. Users can “Jio”
+        others by creating lobbies for activities such as sports, games, or food meetups,
+        browse available lobbies with filters, and join sessions with real-time slot tracking.
+        Ownership rules ensure that only lobby creators can edit or cancel sessions, making
+        coordination clear and efficient. With everything centralized in one platform,
+        JioMe replaces scattered chat messages with a structured and easy-to-use experience.
+    </p>
+
+    <!-- Tech Stack -->
+    <h3>Tech Stack:</h3>
+    <ul>
+      <li>Frontend: React, JavaScript, HTML, CSS</li>
+      <li>Backend: Node.js, Express</li>
+      <li>Database: MySQL</li>
+      <li>Authentication: Token-based authentication (login returns token + user_id)</li>
+      <li>API: RESTful API (CRUD operations for users and lobbies)</li>
+      <li>Deployment: Vercel (Frontend & Backend)</li>
+      <li>Version Control: Git & GitHub (branching, PRs, merges)</li>
+    </ul>
+
+    <!-- Links -->
+    <div class="project-links-vertical">
+      <a href="https://c219-ca2-jiome.vercel.app/" target="_blank" class="btn-link">View Live App</a>
+      <a href="projects.html" class="btn-link">Back to Projects ⬅️</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© KaiWen. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Slideshow functionality with auto-slide
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slides img');
+    const totalSlides = slides.length;
+
+    const showSlide = (index) => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    const prevSlide = () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    document.querySelector('.next').addEventListener('click', nextSlide);
+    document.querySelector('.prev').addEventListener('click', prevSlide);
+
+    // Auto-slide every 3 seconds
+    setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>
