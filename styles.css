@@ -839,3 +839,41 @@ a, a:link, a:visited, a:active {
 .project-description li {
     margin-bottom: 6px;
 }
+
+/* --- Contact Social Links --- */
+.contact-socials {
+    margin-top: 5px;          /* space after contact form */
+    padding: 40px 20px;
+    text-align: center;
+    background: var(--dark-blue);
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.contact-socials p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: var(--text-fade);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    padding: 12px 26px;
+    border-radius: 30px;
+    border: 2px solid var(--purple-highlight);
+    color: var(--text-light);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--purple-highlight);
+    color: var(--dark-blue);
+    transform: translateY(-3px);
+}
+
