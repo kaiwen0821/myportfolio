@@ -50,20 +50,27 @@
         <textarea name="message" rows="5" required></textarea>
       </div>
 
-      <button type="submit" class="send-btn">Send</button>
+      <button type="submit" class="send-btn" id="sendBtn">Send</button>
     </form>
   </section>
 
+  <!-- SOCIAL LINKS -->
   <div class="contact-socials">
     <p>Or connect with me here</p>
-  
+
     <div class="social-links">
+      <!-- LINKEDIN -->
       <a href="https://www.linkedin.com/in/kaiwen-yeo-61b4ab362/" target="_blank">
-        LinkedIn
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M8.34 18.34V9.67H5.67V18.34H8.34M7 8.34A1.67 1.67 0 1 0 7 5A1.67 1.67 0 0 0 7 8.34M18.34 18.34V13.67C18.34 11.34 17 10.34 15.34 10.34C14 10.34 13.34 11 13 11.67V9.67H10.34V18.34H13V13.67C13 12.67 13.67 12 14.67 12C15.67 12 16 12.67 16 13.67V18.34H18.34Z"/>
+        </svg>
       </a>
-  
+
+      <!-- GITHUB -->
       <a href="https://github.com/kaiwen0821" target="_blank">
-        GitHub
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2A10 10 0 0 0 2 12C2 16.42 4.87 20.17 8.84 21.5C9.34 21.58 9.5 21.27 9.5 21V19.77C6.73 20.37 6.14 18.43 6.14 18.43C5.68 17.27 5.03 16.97 5.03 16.97C4.12 16.35 5.1 16.36 5.1 16.36C6.1 16.43 6.63 17.39 6.63 17.39C7.5 18.88 8.97 18.45 9.54 18.18C9.63 17.53 9.89 17.08 10.17 16.82C7.95 16.57 5.62 15.7 5.62 11.5C5.62 10.31 6.04 9.33 6.73 8.57C6.63 8.32 6.26 7.28 6.83 5.9C6.83 5.9 7.67 5.63 9.5 6.95C10.29 6.73 11.14 6.62 12 6.62C12.86 6.62 13.71 6.73 14.5 6.95C16.33 5.63 17.17 5.9 17.17 5.9C17.74 7.28 17.37 8.32 17.27 8.57C17.96 9.33 18.38 10.31 18.38 11.5C18.38 15.71 16.04 16.56 13.81 16.81C14.17 17.12 14.5 17.73 14.5 18.66V21C14.5 21.27 14.66 21.59 15.17 21.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
+        </svg>
       </a>
     </div>
   </div>  
@@ -72,13 +79,33 @@
     <p>© KaiWen. All Rights Reserved.</p>
   </footer>
 
+  <!-- EMAILJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
-    const form = document.getElementById('contactForm');
+    emailjs.init("KoBYvDwDt1Br8oNQ4");
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault(); // prevent default form submission
-      alert('Thank you! Your message has been sent.'); // show success message
-      form.reset(); // clear all form fields
+    const form = document.getElementById("contactForm");
+    const sendBtn = document.getElementById("sendBtn");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      sendBtn.disabled = true;
+
+      emailjs.sendForm(
+        "service_gy1fm1j",
+        "template_5ybkzw7",
+        form
+      ).then(
+        () => {
+          alert("Thank you! Your message has been sent 😊");
+          form.reset();
+          sendBtn.disabled = false;
+        },
+        (error) => {
+          alert("Email failed ❌");
+          sendBtn.disabled = false;
+        }
+      );
     });
   </script>
 
