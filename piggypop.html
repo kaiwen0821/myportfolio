@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PiggyPop Mobile App UI - My Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/logo.png" alt="My Portfolio Logo" />
+    </div>
+  
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>  
+
+  <section class="project-detail">
+    <h2>PiggyPop 💰</h2>
+
+    <!-- Slidable App Images -->
+    <div class="project-slider">
+      <div class="slides">
+        <img src="img/piggypop.png" alt="Home Page" class="active" />
+        <img src="img/loading.png" alt="Loading Page" />
+        <img src="img/signin.png" alt="SignIn Page" />
+        <img src="img/signup.png" alt="SignUp Page" />
+        <img src="img/signupsuccess.png" alt="Account Created PopUp" />
+        <img src="img/1stad.png" alt="1st Ad" />
+        <img src="img/2ndad.png" alt="2nd Ad" />
+        <img src="img/3rdad.png" alt="3rd Ad" />
+        <img src="img/addexpense.png" alt="Add Expense Page" />
+        <img src="img/choosecategory.png" alt="Choose Category PopUp" />
+        <img src="img/expenseadded.png" alt="Expense Added" />
+        <img src="img/transaction.png" alt="Transaction Page" />
+        <img src="img/overview.png" alt="Overview Page" />
+        <img src="img/food.png" alt="Food Overview Page" />
+        <img src="img/subscriptions.png" alt="subscriptions Overview Page" />
+        <img src="img/friendsfamily.png" alt="Friends&Family Overview Page" />
+        <img src="img/others.png" alt="Others Overview Page" />
+        <img src="img/transport.png" alt="Transport Overview Page" />
+        <img src="img/rewards.png" alt="Rewards Page" />
+        <img src="img/profile.png" alt="My Profile Page" />
+        <img src="img/personalinformation.png" alt="Personal Settings Page" />
+        <img src="img/settings.png" alt="Security Settings Page" />
+        <img src="img/notifications.png" alt="Notifications Page" />
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+
+<!-- Description -->
+<div class="project-description">
+
+  <p>
+    <strong>PiggyPop</strong> is a high-fidelity mobile budgeting app designed to help students and young adults
+    manage their spending and savings through a simple, fun, and visually engaging experience.
+  </p>
+
+  <h4>Problem</h4>
+  <p>
+    Many students and young adults struggle to keep track of their daily expenses. Small purchases such as food,
+    transport, and subscriptions often go unnoticed, causing users to overspend without realising it.
+    Existing budgeting apps can feel too complex and overwhelming, discouraging consistent use.
+  </p>
+
+  <h4>Solution</h4>
+  <p>
+    PiggyPop simplifies budgeting by allowing users to easily track expenses, monitor spending habits,
+    and set savings goals through an intuitive and user-friendly interface. The app encourages better
+    financial awareness and helps users build healthier money management habits over time.
+  </p>
+
+  <h4>Design Focus</h4>
+  <p>
+    Designed as part of the <strong>C218 UI/UX Design for Apps</strong> module, the app features a fully
+    customised UI kit, clean and playful visual styling, intuitive navigation, and engaging micro-interactions
+    to create a smooth and enjoyable budgeting experience.
+  </p>
+
+  <h4>Key Screens</h4>
+  <p>Dashboard, Expense Tracker, Budget Overview, Savings Goals, Transaction History</p>
+
+</div>
+
+    <!-- Tech Stack -->
+    <h3>Tech Stack:</h3>
+    <ul>
+      <li>Design & Prototyping: Figma</li>
+      <li>UI Components & Assets: Unsplash images, Icons8</li>
+    </ul>
+
+    <!-- Links -->
+    <div class="project-links-vertical">
+      <a href="https://www.figma.com/design/MSyN0L4uUKNabIE1J1C7EJ/kaiwen-24010782-PiggyPop-App?node-id=1-3&t=kUN4vwF6yh82iasD-1" target="_blank" class="btn-link">View Live UI</a>
+      <a href="projects.html" class="btn-link">Back to Projects ⬅️</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© KaiWen. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Slideshow functionality with auto-slide
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slides img');
+    const totalSlides = slides.length;
+
+    const showSlide = (index) => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    const prevSlide = () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    document.querySelector('.next').addEventListener('click', nextSlide);
+    document.querySelector('.prev').addEventListener('click', prevSlide);
+
+    // Auto-slide every 3 seconds
+    setInterval(nextSlide, 3000);
+  </script>
+
+</body>
+</html>
